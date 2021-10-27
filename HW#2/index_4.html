@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!--
+      * Необходимо реализовать четыре функции, каждая функция должна принимать по два числа и выполнять одну из операций
+      * (каждая функция выполняет одну из них):
+      * 1. Сложение
+      * 2. Разность
+      * 3. Умножение
+      * 4. Деление
+      
+      * Необходимо сделать так, чтобы функция вернула число, 
+      * например выражение `console.log(sum(2, 6));` должно вывести число 8 в консоль 
+      * (sum - функция сложения в данном примере, ваши названия функций могут отличаться).
+      
+      * Округлять значения, которые возвращают функции не нужно, однако,
+      * обратите внимание на разность, функция должна вычесть из большего числа меньшее, либо вернуть 0, если числа равны.
+      * Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать не нужно.
+      * Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+   -->
+   <script>
+      "use strict";
+
+      /**
+         * * Функция sumNum выполняет сложение чисел
+         * * @param {a} number
+         * * @param {b} number
+         * * @returns {*} - возвращает сумму чисел
+       */
+      function sumNum(a, b) {
+         return (a + b);
+      }
+      console.log(sumNum(5, 7));
+
+      /**
+         * * Функция subtracNum выполняет вычитание чисел, взависимости от того какое число больше.
+         * * @param {a} number
+         * * @param {b} number
+         * * @returns {*} - возвращает разность чисел
+       */
+      function subtracNum(a, b) {
+
+         if (a >= b) {
+            return a - b;
+         }
+         else if (b > a) {
+            return b - a;
+         }
+      }
+      console.log(subtracNum(5, 7));
+
+      /**
+        * * Функция multiplyNum выполняет умножение чисел
+        * * @param {a} number
+        * * @param {b} number
+        * * @returns {*} - возвращает произведение чисел
+       */
+      function multiplyNum(a, b) {
+         return a * b;
+      }
+      console.log(multiplyNum(5, 7));
+
+      /**
+         * * Функция divideNum выполняет деление чисел
+         * * @param {a} number
+         * * @param {b} number
+         * * @returns {*} - возвращает результат деления чисел
+       */
+      function divideNum(a, b) {
+         return a / b;
+      }
+      console.log(divideNum(5, 7));
+
+   </script>
+</body>
+
+</html>
