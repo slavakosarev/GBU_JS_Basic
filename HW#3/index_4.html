@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!--
+      * 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна
+      * фотография используя метод filter. Исходные данные - массив products.
+      * 2. Необходимо отсортировать массив products используя метод sort по цене,
+      * начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+   -->
+   <script>
+      "use strict";
+
+      const products = [
+         {
+            id: 3,
+            price: 127,
+            photos: [
+               "1.jpg",
+               "2.jpg",
+            ],
+         },
+         {
+            id: 5,
+            price: 499,
+            photos: [],
+         },
+         {
+            id: 10,
+            price: 26,
+            photos: [
+               "3.jpg",
+            ],
+         },
+         {
+            id: 8,
+            price: 78,
+         },
+      ];
+
+      /**
+        * * Вызываем метод filter() на массиве products, состоящим из объектов и передаём функцию, 
+        * * которая отрабатывает на каждом элементе массива.
+        * * Внутри функции проверяем, есть ли значение photos у каждого элемента. Если да, то функция отдаёт true.
+        * * Дальше выполняем вторую проверку, по длине массива, если > 0, 
+        * * то получаем второе true и возвращаем результат подходящий по всем условиям.
+        * * Присваиваем результрат фильтрации в переменную productsFilter и выводим в консоль.
+       */
+      let productsFilter = products.filter(function (product) {
+         return product.photos !== undefined && product.photos.length > 0;
+      });
+      console.log(productsFilter);
+
+      /**
+        * * У метода sort есть встроенная функция сравнения(compareFunction), она будет вычитать `a` - `b`, а результат отсортирует по возрастанию. Выводим в консоль массив.
+        * ! Вычитание ведется справа налево, т.е. браузер в `a` кладет второй по очереди элемент.
+        * ! Павел не могли Вы пояснить, как это работает, какая логика. Читал на MDN, но все равно не дошло.
+       */
+      products.sort(function (a, b) {
+         return a.price - b.price;
+      });
+      console.log(products);
+
+   </script>
+</body>
+
+</html>
