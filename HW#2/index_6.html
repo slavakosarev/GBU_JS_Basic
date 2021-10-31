@@ -37,20 +37,25 @@
       */
       function declinationOfNumber(num, str1, str2, str3) {
 
-         if (num === 1) {
-            return str1;
+         let numNum = num;
+         if (numNum > 20) {
+            let lastNum = (Array.from(String(num), Number)).slice(-1);
+            numNum = lastNum;
          }
-         else if (num === 0 || num >= 5) {
-            return str3;
+         if (numNum === 1) {
+            return (`${num} ${str1};`);
+         }
+         else if (numNum === 0 || numNum >= 5 && numNum <= 20) {
+            return (`${num} ${str3};`);
          }
          else {
-            return str2;
+            return (`${num} ${str2};`);
          }
-      };
+      }
 
-      console.log(declinationOfNumber(7, "яблоко", "яблока", "яблок"));
-      console.log(declinationOfNumber(0, "мяч", "мяча", "мячей"));
-      console.log(declinationOfNumber(3, "стул", "стула", "стульев"));
+      console.log(declinationOfNumber(147, "яблоко", "яблока", "яблок"));
+      console.log(declinationOfNumber(52, "мяч", "мяча", "мячей"));
+      console.log(declinationOfNumber(4444, "стул", "стула", "стульев"));
 
    </script>
 </body>
