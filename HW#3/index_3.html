@@ -31,12 +31,13 @@
       ];
 
       products.forEach(function (obj) {
-         console.log(obj.price * 0.85)
+         console.log(obj.price = obj.price * 0.85);
       });
 
       // протестировал метод map, можно вывести результат в виде массива
       let priceWithDiscount = products.map(function (obj) {
-         return obj.price * 0.85;
+         obj.price = obj.price * 0.85;
+         return obj.price;
       });
       console.log(priceWithDiscount);
 

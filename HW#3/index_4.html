@@ -54,7 +54,8 @@
       * * Присваиваем результрат фильтрации в переменную productsFilter и выводим в консоль.
       */
       let productsFilter = products.filter(function (product) {
-         return product.photos !== undefined && product.photos.length > 0;
+         // return product.photos !== undefined && product.photos.length > 0;
+         return "photos" in product && product.photos.length > 0;
       });
       console.log(productsFilter);
 
