@@ -51,16 +51,17 @@
        * * @param {*} date 
        * * @param {*} highlighted
        */
-      function PostES5(autor, text, date) {
+      function PostES5(autor, text) {
          this.autor = autor;
          this.text = text;
          this.date = new Date();
       }
       PostES5.prototype.edit = function () {
          this.text = ('New post: ' + this.text);
+         this.date = new Date();
       }
-      function AttachedPostES5(autor, text, date, highlighted) {
-         PostES5.call(this, autor, text, date);
+      function AttachedPostES5(autor, text) {
+         PostES5.call(this, autor, text);
          this.highlighted = false;
       }
       AttachedPostES5.prototype = Object.create(PostES5.prototype);
@@ -86,18 +87,19 @@
        * * @param {*} highlighted
        */
       class PostES6 {
-         constructor(autor, text, date) {
+         constructor(autor, text) {
             this.autor = autor;
             this.text = text;
             this.date = new Date();
          }
          edit() {
             this.text = ('New post: ' + this.text);
+            this.date = new Date();
          }
       }
       class AttachedPostES6 extends PostES6 {
-         constructor(autor, text, date, highlighted) {
-            super(autor, text, date);
+         constructor(autor, text) {
+            super(autor, text);
             this.highlighted = false;
          }
          makeTextHighlighted() {
