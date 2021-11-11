@@ -44,7 +44,6 @@
       поменяйте текст внутри элемента на "ссылка".
        */
       const linkEls = document.getElementsByClassName('card-link');
-      linkEls.item.innerText = 'ссылка';
       for (let linkEl of linkEls) {
          linkEl.innerText = 'ссылка';
       }
@@ -52,8 +51,7 @@
       3. Найти все элементы на странице с классом "card-link", которые лежат в
       элементе с классом "card-body" и вывести полученную коллекцию в консоль.
        */
-      const divEl = document.querySelector('.card-body');
-      const divEls = divEl.querySelectorAll('.card-link');
+      const divEls = document.querySelector('.card-body .card-link');
       console.log(divEls);
 
       /*

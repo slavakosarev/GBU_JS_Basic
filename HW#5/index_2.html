@@ -78,7 +78,7 @@
       6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
       атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
        */
-      const elChangeId = document.querySelector('div:last-child');
+      const elChangeId = document.querySelector('[aria-labelledby="dropdownMenuButton"]');
       console.log(elChangeId);
       elChangeId.dataset.dd = 3;
       /*
@@ -95,7 +95,7 @@
        */
       const attEls = document.querySelector('.btn.dropdown-toggle');
       console.log(attEls.attributes);
-      for (let att of attEls.attributes) {
+      for (const att of attEls.attributes) {
          console.log(`Атрибут "${att.name}" содержит значение "${att.value}" `);
       }
 
