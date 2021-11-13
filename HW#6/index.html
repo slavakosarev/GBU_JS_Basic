@@ -74,10 +74,8 @@
          const prodClon = document.querySelector('.product').cloneNode(true);
          const newProd = document.querySelector('.product:nth-child(3)');
          newProd.replaceWith(prodClon);
-
-         const text = prodClon.querySelector('div').innerText = 'Товар 4';
-         const linkImg = prodClon.querySelector('img');
-         linkImg.setAttribute('src', 'http://lorempixel.com/200/300/food/4/');
+         prodClon.querySelector('div').innerText = 'Товар 4';
+         prodClon.querySelector('img').src = 'http://lorempixel.com/200/300/food/4/';
 
          /*
          5. По истечению 2 секунд с момента открытия страницы первый товар должен быть

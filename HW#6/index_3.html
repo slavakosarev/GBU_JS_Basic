@@ -40,16 +40,14 @@
       for (const child of parentStars.children) {
          child.addEventListener('mouseover', event => {
             event.target.classList.toggle('golden');
-            getSiblings(event.target);
+            doToggleClass(event.target);
          })
       };
-      function getSiblings(elem) {
-         let siblings = [];
+      function doToggleClass(elem) {
          let sibling = elem;
          while (sibling.previousElementSibling) {
             sibling = sibling.previousElementSibling;
             sibling.classList.toggle('golden');
-            sibling.nodeType === 1 && siblings.push(sibling);
          }
       };
 
@@ -60,7 +58,7 @@
       for (const child of parentStars.children) {
          child.addEventListener('mouseout', event => {
             event.target.classList.toggle('golden');
-            getSiblings(event.target);
+            doToggleClass(event.target);
          })
       };
 
@@ -76,6 +74,11 @@
        ** Решить данную проблему можно вероятно установив слушатель событий на все узлы в теге <div>.
        ** Предложение по решению на данном этапе у меня нет.
        */
+      document.querySelector('.stars_container').childNodes.forEach(node => {
+         if (node.nodeName === '#text') {
+            node.remove();
+         }
+      });
 
    </script>
 </body>

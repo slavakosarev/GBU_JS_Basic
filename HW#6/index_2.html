@@ -51,7 +51,7 @@
       моментально отображаться в span. То есть при печати в input'е тег span также
       должен меняться.
       */
-      document.querySelector('[id="from"]').addEventListener('input', event => {
+      document.querySelector('#from').addEventListener('input', event => {
          document.querySelector('span').innerText = event.target.value;
       });
 
@@ -87,8 +87,8 @@
          if (input2.value === '') {
             input2.style.outline = '3px solid red';
          }
-         checkInputs(input1, input2);
       });
+      checkInputs(input1, input2);
       function checkInputs(param1, param2) {
          const arr = new Array(param1, param2);
          arr.forEach(elem => elem.addEventListener('input', event => {
