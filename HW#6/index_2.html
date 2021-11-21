@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .message {
+         width: 150px;
+         padding: 20px;
+         background: lightgoldenrodyellow;
+         border: 1px solid orange;
+         visibility: hidden;
+      }
+   </style>
+</head>
+
+<body>
+   <!--
+   Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+   стирать, код с решением задачи пишем под комментарием.
+   -->
+
+   <input id="from" type="text">
+   В инпуте написано: <span></span>
+
+   <br>
+
+   <button class="messageBtn">Показать блок</button>
+   <div class="message">
+      Привет :)
+   </div>
+
+   <br>
+
+   <form>
+      <input id="first" type="text"><br>
+      <br>
+      <input id="second" type="text"><br>
+      <br>
+      <button>Отправить</button>
+   </form>
+
+   <script>
+      "use strict";
+
+      /*
+      1. При изменении значения в input, значение содержащееся в нем должно
+      моментально отображаться в span. То есть при печати в input'е тег span также
+      должен меняться.
+      */
+      document.querySelector('#from').addEventListener('input', event => {
+         document.querySelector('span').innerText = event.target.value;
+      });
+
+      /*
+      2. При клике на кнопку с классом messageBtn необходимо элементу с классом
+      message:
+      1) добавить два класса: animate__animated и animate__fadeInLeftBig
+      2) поставить данному элементу стиль visibility в значение 'visible'.
+       */
+      document.querySelector('.messageBtn').addEventListener('click', event => {
+         const newClass = document.querySelector('.message');
+         newClass.classList.add('animate__animated', 'animate__fadeInLeftBig');
+         newClass.style.visibility = 'visible';
+      });
+
+      /*
+      3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
+      форме. Если какое-либо поле не заполнено, его необходимо подсветить и не дать
+      отправить форму. Форма отправляется, только если оба поля не пусты.
+      Если поле было подсвечено в прошлый раз, а в другой раз поле было заполнено,
+      то выделение данного поля надо убрать.
+       */
+      const input1 = document.querySelector('#first');
+      const input2 = document.querySelector('#second');
+
+      document.querySelector('form').addEventListener('submit', event => {
+         if (input1.value === '' || input2.value === '') {
+            event.preventDefault();
+         }
+         if (input1.value === '') {
+            input1.style.outline = '3px solid red';
+         }
+         if (input2.value === '') {
+            input2.style.outline = '3px solid red';
+         }
+      });
+      checkInputs(input1, input2);
+      function checkInputs(param1, param2) {
+         const arr = new Array(param1, param2);
+         arr.forEach(elem => elem.addEventListener('input', event => {
+            if (event.target.value !== '') {
+               event.target.style.removeProperty('outline');
+            };
+         }));
+      };
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!--
+   * Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+   * Необходимо реализовать функцию:
+   * mathOperation(arg1, arg2, operation);
+   * Параметры:
+   * arg1 - первое число.
+   * arg2 - второе число.
+   * operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+   * Функция mathOperation должна вернуть результат операции, который был передан в
+   * параметр operation для двух первых аргументов (arg1 и arg2).
+   * Функция mathOperation должна использовать для вычисления функции из 4 задания.
+   
+   * Примеры вызова функции:
+   * console.log(mathOperation(5, 3, "+")); // 8
+   * console.log(mathOperation(5, 3, ":)")); // NaN
+   
+   * Функции mathOperation всегда передаются корректные числа, 
+   * проверки на NaN, Infinity делать не нужно, однако, в случае если был передан некорректный аргумент в параметр operation, необходимо вернуть NaN.
+   * Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+   -->
+   <script>
+      "use strict";
+
+      /**
+      * * Функция sumNum выполняет сложение чисел
+      * * @param {number} a
+      * * @param {number} b
+      * * @returns {*} - возвращает сумму чисел
+      */
+      function sumNum(a, b) {
+         return (a + b);
+      }
+
+      /**
+      * * Функция subtracNum выполняет вычитание чисел, взависимости от того какое число больше.
+      * * @param {number} a
+      * * @param {number} b
+      * * @returns {*} - возвращает разность чисел
+      */
+      function subtracNum(a, b) {
+
+         if (a >= b) {
+            return a - b;
+         }
+         return b - a;
+      }
+
+      /**
+      * * Функция multiplyNum выполняет умножение чисел
+      * * @param {number} a
+      * * @param {number} b
+      * * @returns {*} - возвращает произведение чисел
+      */
+      function multiplyNum(a, b) {
+         return a * b;
+      }
+
+      /**
+      * * Функция divideNum выполняет деление чисел
+      * * @param {number} a
+      * * @param {number} b
+      * * @returns {*} - возвращает результат деления чисел
+      */
+      function divideNum(a, b) {
+         return a / b;
+      }
+
+      /**
+      * * Функция mathOperation возвращает результат операции, который был передан в параметр operation, 
+      * * используя функции выше для вычисления. В случае применения некорректного символа, вернет NaN
+      * * @param {number} arg1
+      * * @param {number} arg2
+      * * @param {''} string, содержит один из символов
+      * * @returns {*} - возвращает результат другой функции
+      */
+      function mathOperation(arg1, arg2, operation) {
+
+         switch (operation) {
+            case '+':
+               return sumNum(arg1, arg2);
+            case '-':
+               return subtracNum(arg1, arg2);
+            case '*':
+               return multiplyNum(arg1, arg2);
+            case '/':
+               return divideNum(arg1, arg2);
+            default:
+               return NaN;
+         }
+      };
+
+      console.log(mathOperation(3, 8, '+'));
+      console.log(mathOperation(3, 8, '-'));
+      console.log(mathOperation(3, 8, '*'));
+      console.log(mathOperation(3, 8, '/'));
+      console.log(mathOperation(3, 8, ':'));
+
+   </script>
+</body>
+
+</html>
