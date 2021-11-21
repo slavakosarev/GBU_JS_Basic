@@ -63,7 +63,7 @@
       let activeLink = document.querySelector('.nav-link.active');
       let divContent = document.querySelector('.text');
       ulList.addEventListener('click', event => {
-         let link = event.target;
+         const link = event.target;
          if (!link.classList.contains('nav-link')) return;
          link.classList.add('active');
          activeLink.classList.remove('active');
